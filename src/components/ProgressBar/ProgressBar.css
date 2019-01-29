@@ -1,0 +1,10 @@
+.ProgressBar{
+    background-color: darkgray;
+    border-width: 1px;
+    height: 15px;
+}
+
+.Progress{
+    background-color:deepskyblue ;
+    /* A ideia é esse progresso ser calculado em porcentagem e preencher a barra de progresso com uma cor diferente*/
+}
