@@ -5,8 +5,9 @@ const progressBar = (props) =>{
     return (
         <div>
             <div className="ProgressBar">
-                <p>{props.currentxp}/{props.levelxp}</p>
+                <div className="Progress"></div>
             </div>
+            <p>{props.currentxp}/{props.levelxp}</p>
         </div>
     );
 
