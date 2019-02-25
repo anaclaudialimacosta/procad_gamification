@@ -1,7 +1,8 @@
 .ProgressBar{
-    background-color: darkgray;
-    border-width: 1px;
-    height: 15px;
+  background: #ddd;
+  margin: 20px 0;
+  overflow: hidden;
+  position: relative;
 }
 
 .Progress{

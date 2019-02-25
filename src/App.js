@@ -24,10 +24,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-
-
-
   }
+
+  
   winXPHandler = () => {
     axios.get(/* link do registro*/).then(response => {
       this.setState({ registerAnswer: response.data }) //Recebendo o objeto onde está o registro
@@ -44,7 +43,7 @@ class App extends Component {
       })
     });
 
-    this.setState({xp: this.state.xp + summ})
+    this.setState({xp: this.state.xp + Math.floor(summ/10)}) // 10 por cento da nota vira xp
     upLevelHandler();
 
   }
@@ -52,8 +51,10 @@ class App extends Component {
   render() {
     return ( //Falta ainda arrumar os componentes e referenciar as funções
       <div className="App">
+
         <ComponentLevel level={this.state.level} />
         <ProgressBar currenttxp={this.state.xp} levelxp={this.state.levelxp} />
+        <button className = "btnClass" onClick= {this.winXPHandler}> Calculate Progress</button>
       </div>
     );
   }

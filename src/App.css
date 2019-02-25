@@ -21,6 +21,14 @@
 .App-link {
   color: #61dafb;
 }
+.btnClass{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    padding: 7px 20px;
+    border-radius: 9px;
+    border: 2px solid #171717;
+}
 
 @keyframes App-logo-spin {
   from {
