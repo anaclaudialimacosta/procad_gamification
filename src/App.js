@@ -44,7 +44,7 @@ class App extends Component {
       })
     });
 
-    this.setState({xp: this.state.xp + summ})
+    this.setState({xp: this.state.xp + Math.floor(summ/10)}) // 10 por cento da nota vira xp
     upLevelHandler();
 
   }
