@@ -10,7 +10,7 @@ class App extends Component {
     levelxp: 15,
     xp: 0,
     progresspercent: 0,
-    questions: []
+    registerAnswer: {}
   }
 
   upLevelHandler = () => {
@@ -24,26 +24,29 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get(/* link do registro*/)
-      .then(response => {
-        this.setState({ questions: response.data }) //Recebendo o objeto onde está o registro
-      }
-      );
+
 
 
   }
   winXPHandler = () => {
-    const question = this.state.questions.map(questions => {
-      return {
-        ...questions
-      };
+    axios.get(/* link do registro*/).then(response => {
+      this.setState({ registerAnswer: response.data }) //Recebendo o objeto onde está o registro
     }
     );
-    question.forEach(function (grade, e) {
-      this.setState({ xp: this.state.xp + (grade) / 10 }) 
-      //Somando xp para cada nota. Quantidade de xp é a quantidade que o aluno já tinha de xp mais cada nota dele dividido por 10
-    }
-    )
+
+    let summ = 0; //Variável de soma das notas
+    const register = Object.entries(this.registerAnswer);
+    const appl = register.get(1); //Pegando o array ["aplications"]
+    const actv = appl.get(1);//Pegando o aray ["activities"]
+    actv.forEach(e => { //Para objeto neste array, é necessário olhar cada uma das notas atribuidas
+      e.questions.forEach(el => {
+        summ = summ + el.grade;
+      })
+    });
+
+    this.setState({xp: this.state.xp + summ})
+    upLevelHandler();
+
   }
 
   render() {
